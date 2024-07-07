@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Verônica Bolos e Tortas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+        @keyframes cor-fundo-botao {
+
+            0%,
+            100% {
+                background-color: #ff69b4;
+            }
+
+            50% {
+                background-color: #db7093;
+            }
+        }
+
+        .animate-cor-fundo-botao {
+            animation: cor-fundo-botao 5s ease-in-out infinite;
+        }
+
+        @keyframes correr {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-250px * 5));
+            }
+        }
+
+        .animate-correr {
+            animation: correr 45s linear infinite;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+           
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+            max-width: 90%;
+            width: 500px;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <header class="flex justify-between items-center p-6 bg-pink-200 fixed w-full top-0 z-50">
+        <div>
+            <img src="./assets/log.png" alt="Logo veronica bolos e tortas" class="h-20 w-auto">
+        </div>
+        <nav class="relative">
+            <ul class="hidden md:flex space-x-6 text-xl">
+                <li><a class="menuItens hover:text-green-500" href="index.html">Inicio</a></li>
+                <li><a class="menuItens hover:text-green-500" href="#heroRow">Produtos</a></li>
+                <li><a class="menuItens hover:text-green-500" href="#sobrenos">Sobre Nós</a></li>
+                <li><a class="menuItens hover:text-green-500" href="#galeria">Galeria</a></li>
+                <li><a class="menuItens hover:text-green-500" href="#contatosFlexBox">Contatos</a></li>
+                <li><a href="https://www.instagram.com/veronica.tortas/" target="_blank"><i
+                            class="fab fa-instagram"></i></a></li>
+            </ul>
+            <div class="md:hidden relative">
+                <i class="fas fa-bars text-2xl cursor-pointer" id="hamburger"></i>
+                <ul id="mobileMenu"
+                    class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg space-y-2 text-xl p-4">
+                    <li><a class="block menuItens hover:text-green-500" href="index.html">Inicio</a></li>
+                    <li><a class="block menuItens hover:text-green-500" href="#heroRow">Produtos</a></li>
+                    <li><a class="block menuItens hover:text-green-500" href="#sobrenos">Sobre Nós</a></li>
+                    <li><a class="block menuItens hover:text-green-500" href="#galeria">Galeria</a></li>
+                    <li><a class="block menuItens hover:text-green-500" href="#contatosFlexBox">Contatos</a></li>
+                    <li><a href="https://www.instagram.com/veronica.tortas/" target="_blank" class="block"><i
+                                class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="heroRow" class="flex flex-col items-center justify-center text-center pt-20 bg-cover bg-fixed"
+            style="background-image: linear-gradient(to bottom, #000000b6, #00000086), url('./assets/Bolo\ Hero\ Row.jpg');">
+            <div class="h-screen flex flex-col items-center justify-center space-y-6 text-pink-500">
+                <h1 class="text-7xl text-white">Verônica</h1>
+                <h2 class="text-4xl">Os melhores bolos e tortas da cidade!</h2>
+                <button id="openFormBtn"
+                    class="w-3/4 text-4xl p-4 bg-pink-400 text-white rounded-lg animate-cor-fundo-botao hover:scale-110 transform transition">Peça
+                    Agora</button>
+            </div>
+        </section>
+
+        <section id="sobrenos" class="flex flex-col md:flex-row items-center justify-around p-14 bg-green-200">
+            <div class="w-full md:w-2/5 space-y-4">
+                <h2 class="text-3xl">Sobre Nós</h2>
+                <p class="text-justify leading-relaxed">Há vários anos, nos dedicamos à arte de fazer bolos e tortas
+                    artesanais com amor e cuidado. Atendemos a todos os tipos de pedidos, garantindo que cada doce seja
+                    uma obra-prima única. Para conferir algumas das nossas criações já entregues, basta clicar no ícone
+                    do Instagram no nosso menu. Aceitamos pagamentos em dinheiro ou via Pix para sua conveniência. Para
+                    fazer sua encomenda, clique no botão abaixo, preencha os campos e envie suas informações.
+                    Receberemos seu pedido pelo WhatsApp e responderemos o mais breve possível. Não perca tempo e faça
+                    sua encomenda agora clicando no botão abaixo: Peça Agora!</p>
+            </div>
+            <figure class="w-full md:w-1/3 mt-8 md:mt-0">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.137901942105!2d-34.98762238461843!3d-8.008590994945077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1d3db1138b21%3A0xc7178c5031f7b1a9!2sR.%20Golfinho%2C%2024A%20-%20Ouro%20Preto%2C%20Olinda%20-%20PE%2C%2053370-525!5e0!3m2!1sen!2sbr!4v1648876010797!5m2!1sen!2sbr"
+                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+            </figure>
+        </section>
+
+        <section id="galeria" class="p-14 bg-pink-200 text-center">
+            <h2 class="text-3xl mb-8">Galeria</h2>
+            <div class="relative w-full overflow-hidden">
+                <div id="carousel" class="flex transition-transform duration-500 ease-in-out space-x-4 xl:space-x-0">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/Bolo 01.jpg" alt="Bolo 1">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/Bolo 02.jpg" alt="Bolo 2">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/Bolo 03.jpg" alt="Bolo 3">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/Bolo 04.jpg" alt="Bolo 4">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/Bolo 05.jpg" alt="Bolo 5">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/morango.jpg" alt="Bolo 6">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/torta-de-chocolate.jpg" alt="Bolo 7">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/8.jpg" alt="Bolo 8">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/log.png" alt="Bolo 9">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/10.jpg" alt="Bolo 10">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/11.jpg" alt="Bolo 11">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/12.jpg" alt="Bolo 12">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/13.jpg" alt="Bolo 13">
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/14.jpg" alt="Bolo 13">
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/15.jpg" alt="Bolo 13">
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/16.jpg" alt="Bolo 13">
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/17.jpg" alt="Bolo 13">
+
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/18.jpg" alt="Bolo 13">
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/19.jpg" alt="Bolo 13">
+
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/20.jpg" alt="Bolo 13">
+
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/21.jpg" alt="Bolo 13">
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/22.jpg" alt="Bolo 13">
+
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/23.jpg" alt="Bolo 13">
+
+
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/24.jpg" alt="Bolo 13">
+
+
+                    <img class="carousel-image w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded shadow-md"
+                        src="./assets/25.jpg" alt="Bolo 13">
+
+
+
+                </div>
+                <button id="prevButton"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-500 text-white rounded-full hover:bg-gray-700 transition"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button id="nextButton"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-500 text-white rounded-full hover:bg-gray-700 transition"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="contatosFlexBox" class="p-14 bg-green-200">
+            <h2 class="text-3xl text-center mb-8">Contatos</h2>
+            <div class="flex flex-col lg:flex-row justify-around items-center">
+                <div class="w-full lg:w-1/3 space-y-4">
+                    <h3 class="text-2xl">Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 8h às 18h</p>
+                    <p>Sábado: 8h às 12h</p>
+                    <p>Domingos e Feriados: Fechado</p>
+                </div>
+                <div class="w-full lg:w-1/3 mt-8 lg:mt-0 space-y-4">
+                    <h3 class="text-2xl">Formas de Pagamento</h3>
+                    <p>Pix</p>
+                    <p>Dinheiro</p>
+                </div>
+                <div class="w-full lg:w-1/3 mt-8 lg:mt-0 space-y-4">
+                    <h3 class="text-2xl">Redes Sociais</h3>
+                    <a href="https://www.instagram.com/veronica.tortas/" target="_blank" class="block"><i
+                            class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+ 
+  
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content bg-white rounded-lg shadow-lg p-4">
+      <span class="close-modal absolute top-0 right-0 m-4">&times;</span>
+      <form id="budgetForm" class="bg-white p-4 rounded-lg">
+        <div class="mb-4">
+          <h2 class="text-2xl mb-4">Formulário de Orçamento</h2>
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
+          <input type="text" id="name" name="name"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Telefone:</label>
+          <input type="tel" id="phone" name="phone"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Endereço:</label>
+          <input type="text" id="address" name="address"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label for="subject" class="block text-gray-700 text-sm font-bold mb-2">Assunto:</label>
+          <textarea id="subject" name="subject" rows="4"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+        <div class="flex items-center justify-between">
+          <button id="submitBtn" type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+  
+  <!-- Link para o JavaScript -->
+  <script src="script.js"></script>
+   
+ 
+
+  
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+  
+  
+  <!-- Link para o JavaScript -->
+  <script src="script.js"></script>
+  
+
+    <footer class="text-center p-6 bg-gray-800 text-white">
+        <p>Aplicativo Verônica Tortas e Bolos</p>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./scripit.js"></script>
+</body>
+
+</html>
